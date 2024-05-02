@@ -81,10 +81,7 @@ class Pessoa{
 
     public function setCelular(){
         $this->celular = $celular;
-    }
-
-
-    
-    
+    }  
 }
+
 ?>

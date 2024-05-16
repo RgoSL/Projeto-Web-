@@ -1,12 +1,13 @@
 <?php
 
-require_once 'model/pessoa.php'; // Equivalente ao Import do Java, necessário para fazer a linha 9 funcionar por exemplo. Require = import, once = import prioritário
+require_once '../model/pessoas.php'; // Equivalente ao Import do Java, necessário para fazer a linha 9 funcionar por exemplo. Require = import, once = import prioritário
 
 class PessoasController{
     private $pessoa;
 
     public function _construct(){
         $this->pessoa = new Pessoa(); 
+        $this->inserir();
     }
 
     public function inserir(){
@@ -19,8 +20,9 @@ class PessoasController{
         $this->pessoa->setTelefone($_POST['telefone']);
         $this->pessoa->setCelular($_POST['celular']);
         
+        $this->pessoa->inserir();
+
     }
 }
-    
-
+ 
 ?>

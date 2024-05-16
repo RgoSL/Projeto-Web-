@@ -1,4 +1,5 @@
 <?php
+require_once '../controller/conexao.php';
 
 class Pessoa{
     private $id;
@@ -10,6 +11,7 @@ class Pessoa{
     private $estado;
     private $telefone;
     private $celular;
+    private $conexao;
 
     public function getId(){
         return $this->$id;
@@ -81,7 +83,19 @@ class Pessoa{
 
     public function setCelular(){
         $this->celular = $celular;
-    }  
+    } 
+    
+    public function __construct(){
+        $this->conexao = new Conexao();
+    }
+
+    public function inserir(){
+        $sql = "INSERT INTO pessoa (`nome`, `endereco`, `bairro`, `cep`, `cidade`, `estado`, `telefone`, `celular`) VALUES (?,?,?,?,?,?,?,?)";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stm->bind_param('ssssssss', $this->nome, $this->endereco, $this->bairro, $this->cep, $this->cidade, $this->estado, $this->telefone, $this->celular);
+        return $stmt->execute();
+    }
+
 }
 
 ?>

@@ -14,88 +14,71 @@ class Pessoa{
     private $conexao;
 
     public function getId(){
-        return $this->$id;
+        return $this->id;
     }
-
-    public function setId(){
+    public function setId($id){
         $this->id = $id;
-    }
 
+    }
     public function getNome(){
-        return $this->$nome;
+        return $this->nome;
     }
-
-    public function setNome(){
+    public function setNome($nome){
         $this->nome = $nome;
     }
-
     public function getEndereco(){
-        return $this->$endereco;
+        return $this->endereco;
     }
-
-    public function setEndereco(){
+    public function setEndereco($endereco){
         $this->endereco = $endereco;
     }
-
     public function getBairro(){
-        return $this->$bairro;
+        return $this->bairro;
     }
-
-    public function setBairro(){
+    public function setBairro($bairro){
         $this->bairro = $bairro;
     }
-
     public function getCep(){
-        return $this->$cep;
+        return $this->cep;
     }
-
-    public function setCep(){
+    public function setCep($cep){
         $this->cep = $cep;
     }
-
     public function getCidade(){
-        return $this->$cidade;
+        return $this->cidade;
     }
-
-    public function setCidade(){
+    public function setCidade($cidade){
         $this->cidade = $cidade;
     }
-
     public function getEstado(){
-        return $this->$estado;
+        return $this->estado;
     }
-
-    public function setEstado(){
+    public function setEstado($estado){
         $this->estado = $estado;
     }
-
     public function getTelefone(){
-        return $this->$telefone;
+        return $this->telefone;
     }
-
-    public function setTelefone(){
+    public function setTelefone($telefone){
         $this->telefone = $telefone;
     }
-
     public function getCelular(){
-        return $this->$celular;
+        return $this->celular;
     }
-
-    public function setCelular(){
+    public function setCelular($celular){
         $this->celular = $celular;
-    } 
+    }
     
     public function __construct(){
         $this->conexao = new Conexao();
     }
 
     public function inserir(){
-        $sql = "INSERT INTO pessoa (`nome`, `endereco`, `bairro`, `cep`, `cidade`, `estado`, `telefone`, `celular`) VALUES (?,?,?,?,?,?,?,?)";
+        $sql = "INSERT INTO cliente (`nome`, `endereco`, `bairro`, `cep`, `cidade`, `estado`, `telefone`, `celular`) VALUES (?,?,?,?,?,?,?,?)";
         $stmt = $this->conexao->getConexao()->prepare($sql);
-        $stm->bind_param('ssssssss', $this->nome, $this->endereco, $this->bairro, $this->cep, $this->cidade, $this->estado, $this->telefone, $this->celular);
+        $stmt->bind_param('ssssssss', $this->nome, $this->endereco, $this->bairro, $this->cep, $this->cidade, $this->estado, $this->telefone, $this->celular);
         return $stmt->execute();
     }
-
 }
 
 ?>

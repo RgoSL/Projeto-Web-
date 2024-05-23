@@ -1,6 +1,6 @@
 <?php
 
-require_once '../model/pessoas.php';
+require_once '../model/pessoas.php'; //Instância da Classe Pessoas. Utilizando "Require_once" que simboliza prioridade.//
 
 class PessoaController{
     private $pessoa;

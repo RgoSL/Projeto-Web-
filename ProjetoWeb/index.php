@@ -1,16 +1,16 @@
 <!DOCTYPE html>
-<html>
+<html> //Estruturas HTML: DOC, Head, HTML, Body.
 <head>
     <title>Tela de Cadastro</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> //Framework para estilização genérica do formulário.//
 </head>
 <body>
-    <div class="container">
+    <div class="container">  //container, estrutura, do formulário.//
         <h2>Cadastro</h2>
-        <form method="POST" action="controller/pessoaController.php">
+        <form method="POST" action="controller/pessoaController.php"> //Definindo a forma de receber as informações, via POST PHP.//
             <div class="form-group">
                 <label for="nome">Nome:</label>
-                <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome">
+                <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome"> //Campos do Formulário, e sua respectiva mensagem para o usuário.//
             </div>
             <div class="form-group">
                 <label for="endereco">Endereço:</label>
@@ -40,7 +40,7 @@
                 <label for="celular">Celular:</label>
                 <input type="text" class="form-control" id="celular" name="celular" placeholder="Digite o celular">
             </div>
-            <button type="submit" class="btn btn-primary">Cadastrar</button>
+            <button type="submit" class="btn btn-primary">Cadastrar</button> //Botão do tipo submit, para enviar as informações recebidas pelos Inputs ao Banco de Dados.//
         </form>
     </div>
 </body>

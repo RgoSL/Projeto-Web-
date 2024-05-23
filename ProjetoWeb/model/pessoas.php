@@ -1,7 +1,7 @@
 <?php
 require_once '../controller/conexao.php';  // Instanciando a Classe Conexão na classe Pessoa. O 'require_once' garante a prioridade dessa linha.//
 
-class Pessoa{ // Definindo a Classe Pessoa.//
+class Pessoa{ // Definindo a Classe Pessoa, responsável por definir os atributos que a "pessoa" precisa ter, e manda-los para a sua tabela no Banco de Dados.//
     private $id; //Atributos do Banco de Dados sendo definidos agora em PHP.//
     private $nome;
     private $endereco;

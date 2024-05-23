@@ -1,8 +1,8 @@
 <?php
-require_once '../controller/conexao.php';
+require_once '../controller/conexao.php';  // Instanciando a Classe Conexão na classe Pessoa. O 'require_once' garante a prioridade dessa linha.//
 
-class Pessoa{
-    private $id;
+class Pessoa{ // Definindo a Classe Pessoa.//
+    private $id; //Atributos do Banco de Dados sendo definidos agora em PHP.//
     private $nome;
     private $endereco;
     private $bairro;
@@ -13,10 +13,10 @@ class Pessoa{
     private $celular;
     private $conexao;
 
-    public function getId(){
+    public function getId(){ //Método Get, puxando puxa as informações dos Atributos acima.//
         return $this->id;
     }
-    public function setId($id){
+    public function setId($id){ //Método Set, "define como", as informações dos Atributos acima.//
         $this->id = $id;
 
     }
@@ -73,10 +73,10 @@ class Pessoa{
         $this->conexao = new Conexao();
     }
 
-    public function inserir(){
+    public function inserir(){ //Método Inserir, transferindo os valores da tela de cadastro das informações para a Tabela Cliente no Banco de Dados.//
         $sql = "INSERT INTO cliente (`nome`, `endereco`, `bairro`, `cep`, `cidade`, `estado`, `telefone`, `celular`) VALUES (?,?,?,?,?,?,?,?)";
         $stmt = $this->conexao->getConexao()->prepare($sql);
-        $stmt->bind_param('ssssssss', $this->nome, $this->endereco, $this->bairro, $this->cep, $this->cidade, $this->estado, $this->telefone, $this->celular);
+        $stmt->bind_param('ssssssss', $this->nome, $this->endereco, $this->bairro, $this->cep, $this->cidade, $this->estado, $this->telefone, $this->celular); //Processos para mascarar as informações dos campos.//
         return $stmt->execute();
     }
 }

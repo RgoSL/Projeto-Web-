@@ -7,9 +7,11 @@ class PessoaController{
 
     public function __construct(){ // Método construtor da classe PessoaController.//
         $this->pessoa = new Pessoa(); // Instanciando um objeto da classe Pessoa e atribuindo-o à propriedade $pessoa.//
-        $this->inserir(); // Chamando o método inserir ao construir um objeto PessoaController.//
+        if($_GET['acao'] == 'inserir'){ // Condição do que o usuário pode fazer com o programa, no caso esta setado como "Inserir" informações.
+            $this->inserir(); // Chamando o método inserir ao construir um objeto PessoaController.//
+        }
     }
-
+ 
     public function inserir(){  //Método Inserir do código, ele fará a atribuição dos dados nos campos HTML;
         $this->pessoa->setNome($_POST['nome']);
         $this->pessoa->setEndereco($_POST['endereco']);   // Definindo os atributos da pessoa com base nos dados recebidos via POST.//

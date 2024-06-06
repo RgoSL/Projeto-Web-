@@ -7,7 +7,7 @@
 <body>
     <div class="container">  <!--container, estrutura, do formulário. -->
         <h2>Cadastro</h2>
-        <form method="POST" action="controller/pessoaController.php"> <!-- Definindo a forma de receber as informações, via POST PHP.-->
+        <form method="POST" action="controller/pessoaController.php?acao=inserir"> <!-- Definindo a forma de receber as informações, via POST PHP.-->
             <div class="form-group">
                 <label for="nome">Nome:</label>
                 <input type="text" class="form-control" id="nome" name="nome" placeholder="Digite o nome"> <!--Campos do Formulário, e sua respectiva mensagem para o usuário. -->

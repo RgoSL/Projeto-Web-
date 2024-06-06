@@ -11,7 +11,7 @@ class Conexao { //Clase de Conexão do arquivo, responsável por ligar a tabela 
         $this->conexao = new mysqli($this->host, $this->usuario, $this->senha, $this->banco); //Função externa chamada "msyqli", recebe os valores declarados acima.//
 
         if ($this->conexao->connect_error) { //Estrutura de Comparação do êxito da conexão do Banco.//
-            die("Falha na conexão: " . $this->conexao->connect_error); 
+            die("Falha na conexão: " . $this->conexao->connect_error); //Encerramento da tentativa de conexão em caso de falha ao ligar.
         }
     }
 

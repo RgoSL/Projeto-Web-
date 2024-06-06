@@ -25,6 +25,9 @@ class PessoaController{
         // Chamando o método inserir da instância da classe Pessoa para inserir os dados no Banco de Dados.//
         $this->pessoa->inserir();
 
+  }
+    public function listar(){
+        return $this->pessoa->listar();
     }
 }
 

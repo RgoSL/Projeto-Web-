@@ -36,6 +36,9 @@
                     echo '</td>';
                     echo '</tr>';
                 }
+                        /* É criado um array chamado "registros" que contém as informações de registro das informações no cadastro
+                            esse array é passado para a estrutura de tabela HTML, que cria uma nova linha de dados, com nome e telefone. */
+
                 ?>
             </tbody>
         </table>

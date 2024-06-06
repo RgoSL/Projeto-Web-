@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT']. '/ProjetoWeb/model/pessoa.php' // '../model/pessoas.php'; // Instanciando a Classe Pessoa na classe controller. O 'require_once' garante a prioridade dessa linha. //
+require_once $_SERVER['DOCUMENT_ROOT']. '/ProjetoWeb/model/pessoas.php' // '../model/pessoas.php'; // Instanciando a Classe Pessoa na classe controller. O 'require_once' garante a prioridade dessa linha. //
  
 class PessoaController{
     private $pessoa; // Declaração de uma propriedade privada $pessoa, que será uma instância da classe Pessoa.//

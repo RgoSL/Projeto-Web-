@@ -1,6 +1,6 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT']. '/ProjetoWeb/model/pessoas.php' // '../model/pessoas.php'; // Instanciando a Classe Pessoa na classe controller. O 'require_once' garante a prioridade dessa linha. //
+require_once $_SERVER['DOCUMENT_ROOT']. '/ProjetoWeb/model/pessoas.php'; // '../model/pessoas.php'; // Instanciando a Classe Pessoa na classe controller. O 'require_once' garante a prioridade dessa linha. //
  
 class PessoaController{
     private $pessoa; // Declaração de uma propriedade privada $pessoa, que será uma instância da classe Pessoa.//
@@ -25,9 +25,29 @@ class PessoaController{
         // Chamando o método inserir da instância da classe Pessoa para inserir os dados no Banco de Dados.//
         $this->pessoa->inserir();
 
+
   }
+
     public function listar(){
         return $this->pessoa->listar();
+    }
+
+    public function buscarPorId($id){
+        return $this->pessoa->buscarPorId($id);
+    }
+
+    public function atualizar($id){
+        $this->pessoa->pessoa->setId($id);
+        $this->pessoa->setNome($_POST['nome']);
+        $this->pessoa->setEndereco($_POST['endereco']);
+        $this->pessoa->setBairro($_POST['bairro']);
+        $this->pessoa->setCep($_POST['cep']);
+        $this->pessoa->setCidade($_POST['cidade']);
+        $this->pessoa->setEstado($_POST['estado']);
+        $this->pessoa->setTelefone($_POST['telefone']);
+        $this->pessoa->setCelular($_POST['celular']);
+
+        $this->pessoa->atualizar($id);      
     }
 }
 

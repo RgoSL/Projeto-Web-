@@ -1,5 +1,5 @@
 <?php
-require_once '../controller/conexao.php';  // Instanciando a Classe Conexão na classe Pessoa. O 'require_once' garante a prioridade dessa linha.//
+require_once $_SERVER['DOCUMENT_ROOT']. '/ProjetoWeb/controller/conexao.php';  // Instanciando a Classe Conexão na classe Pessoa. O 'require_once' garante a prioridade dessa linha.//
 
 class Pessoa{ // Definindo a Classe Pessoa, responsável por definir os atributos que a "pessoa" precisa ter, e manda-los para a sua tabela no Banco de Dados.//
     private $id; //Atributos do Banco de Dados sendo definidos agora em PHP.//
@@ -79,6 +79,34 @@ class Pessoa{ // Definindo a Classe Pessoa, responsável por definir os atributo
         $stmt->bind_param('ssssssss', $this->nome, $this->endereco, $this->bairro, $this->cep, $this->cidade, $this->estado, $this->telefone, $this->celular); //Processos para mascarar as informações dos campos.//
         return $stmt->execute();
     }
-}
 
+    public function listar(){
+        $sql = "SELECT * FROM pessoas";
+        $stmt = $this->conexao-getConexao()->prepare($sql);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        $pessoas = [];
+        while($pessoas = $result->fetch_assoc()){  //Função do sqli, fetch_assoc capta dados de um array list.
+            $pessoas[] = $pessoas;
+        }
+        return $pessoas;
+        
+    }
+    public function buscarPorId($id){
+        $sql = "SELECT * FROM pessoas WHERE id = ?";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param("i", $id);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        return $result->fetch_assoc(); 
+    }
+
+    public function atualizar($id){
+        $sql = "UPDATE pessoas SET nome = ?, endereco = ?, bairro = ?, cep = ?, cidade = ?, estado = ?, telefone = ?, celular = ? WHERE id = ?";
+        $stmt = $this->conexao-getConexao()->prepare($sql);
+        $stmt-bind_param('ssssssssi',$this->nome,$this->endereco, $this->bairro, $this->cep, $this->cidade, $this->estado, $this->telefone, $this->celular, $id);
+        return $stmt->execute();
+    }
+}
+    
 ?>

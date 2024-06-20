@@ -23,6 +23,8 @@
                 <?php
                     $pessoaController = new PessoaController();
                     $pessoas = $pessoaController->listar();
+
+                    print_r($pessoas);
                     foreach ($pessoas as $pessoa) {
                 
                          ?>

@@ -86,10 +86,11 @@ class Pessoa{ // Definindo a Classe Pessoa, responsável por definir os atributo
         $stmt->execute();
         $result = $stmt->get_result();
         $pessoas = [];
-        while($pessoas = $result->fetch_assoc()){  //Função do sqli, fetch_assoc capta dados de um array list.
+        while($pessoa = $result->fetch_assoc()){  //Função do sqli, fetch_assoc capta dados de um array list.
             $pessoas[] = $pessoas;
         }
-        return $pessoas;
+        print_r($pessoas);
+        //return $pessoas;
         
     }
     public function buscarPorId($id){

@@ -89,7 +89,8 @@ class Pessoa{ // Definindo a Classe Pessoa, responsável por definir os atributo
         while($pessoa = $result->fetch_assoc()){  //Função do sqli, fetch_assoc capta dados de um array list.
             $pessoas[] = $pessoas;
         }
-        print_r($pessoas);
+        return $pessoas;
+       // print_r($pessoas);//
         //return $pessoas;
         
     }

@@ -23,14 +23,14 @@
                 <?php
                     $pessoaController = new PessoaController();
                     $pessoas = $pessoaController->listar();
-
-                    foreach($pessoas as $pessoa) {
+                    foreach ($pessoas as $pessoa) {
+                
                          ?>
                     <tr>
                         <th><?php echo $pessoa['nome']; ?> </th>
                         <th><?php echo $pessoa['telefone']; ?></th>
                         <th><?php echo $pessoa['celular']; ?></th>
-                        <th> <a href ="editar.php?id =<?php echo $pessoa['id']; ?>"</a></th>
+                        <th> <a href ="editar.php?id =<?php echo $pessoa['id']; ?>">Editar</a></th>
                     </tr>
                 <?php } ?>
             </tbody>

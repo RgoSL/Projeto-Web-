@@ -1,14 +1,14 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT']. '/ProjetoWeb/model/pessoas.php'; // '../model/pessoas.php'; // Instanciando a Classe Pessoa na classe controller. O 'require_once' garante a prioridade dessa linha. //
+require_once $_SERVER['DOCUMENT_ROOT']. '/ProjetoWeb/model/pessoas.php'; // Caminho local = '../model/pessoas.php';  Instanciando a Classe Pessoa na classe controller. O 'require_once' garante a prioridade dessa linha. 
  
 class PessoaController{
-    private $pessoa; // Declaração de uma propriedade privada $pessoa, que será uma instância da classe Pessoa.//
+    private $pessoa; // Declaração de uma propriedade privada $pessoa, que será uma instância da classe Pessoa.
 
-    public function __construct(){ // Método construtor da classe PessoaController.//
-        $this->pessoa = new Pessoa(); // Instanciando um objeto da classe Pessoa e atribuindo-o à propriedade $pessoa.//
+    public function __construct(){ // Método construtor da classe PessoaController.
+        $this->pessoa = new Pessoa(); // Instanciando um objeto da classe Pessoa e atribuindo-o à propriedade $pessoa.
         if($_GET['acao'] == 'inserir'){ // Condição do que o usuário pode fazer com o programa, no caso esta setado como "Inserir" informações.
-            $this->inserir(); // Chamando o método inserir ao construir um objeto PessoaController.//   
+            $this->inserir(); // Chamando o método inserir ao construir um objeto PessoaController.
         }else if($_GET['acao'] == 'atualizar'){
             $this->atualizar($_GET['id']);
         }
@@ -27,7 +27,6 @@ class PessoaController{
         // Chamando o método inserir da instância da classe Pessoa para inserir os dados no Banco de Dados.//
         $this->pessoa->inserir();
 
-
   }
 
     public function listar(){
@@ -39,7 +38,7 @@ class PessoaController{
     }
 
     public function atualizar($id){
-        $this->pessoa->pessoa->setId($id);
+        $this->pessoa->setId($id);
         $this->pessoa->setNome($_POST['nome']);
         $this->pessoa->setEndereco($_POST['endereco']);
         $this->pessoa->setBairro($_POST['bairro']);

@@ -69,8 +69,8 @@ class Pessoa{ // Definindo a Classe Pessoa, responsável por definir os atributo
         $this->celular = $celular;
     }
     
-    public function __construct(){
-        $this->conexao = new Conexao();
+    public function __construct(){ //Método que inicia a conexão com o BD.
+        $this->conexao = new Conexao(); //instânciando a classe conexão.
     }
 
     public function inserir(){ //Método Inserir, transferindo os valores da tela de cadastro das informações para a Tabela Cliente no Banco de Dados.//
@@ -81,8 +81,8 @@ class Pessoa{ // Definindo a Classe Pessoa, responsável por definir os atributo
     }
 
     public function listar(){
-        $sql = "SELECT * FROM pessoas";
-        $stmt = $this->conexao-getConexao()->prepare($sql);
+        $sql = "SELECT * FROM cliente";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->execute();
         $result = $stmt->get_result();
         $pessoas = [];
@@ -93,7 +93,7 @@ class Pessoa{ // Definindo a Classe Pessoa, responsável por definir os atributo
         
     }
     public function buscarPorId($id){
-        $sql = "SELECT * FROM pessoas WHERE id = ?";
+        $sql = "SELECT * FROM cliente WHERE id = ?";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param("i", $id);
         $stmt->execute();
@@ -103,8 +103,8 @@ class Pessoa{ // Definindo a Classe Pessoa, responsável por definir os atributo
 
     public function atualizar($id){
         $sql = "UPDATE pessoas SET nome = ?, endereco = ?, bairro = ?, cep = ?, cidade = ?, estado = ?, telefone = ?, celular = ? WHERE id = ?";
-        $stmt = $this->conexao-getConexao()->prepare($sql);
-        $stmt-bind_param('ssssssssi',$this->nome,$this->endereco, $this->bairro, $this->cep, $this->cidade, $this->estado, $this->telefone, $this->celular, $id);
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('ssssssssi',$this->nome,$this->endereco, $this->bairro, $this->cep, $this->cidade, $this->estado, $this->telefone, $this->celular, $id);
         return $stmt->execute();
     }
 }

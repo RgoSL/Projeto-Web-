@@ -23,9 +23,9 @@
                 <?php
                     $pessoaController = new PessoaController();
                     $pessoas = $pessoaController->listar();
-                    foreach($pessoas as $pessoas){
-                ?>
 
+                    foreach($pessoas as $pessoa) {
+                         ?>
                     <tr>
                         <th><?php echo $pessoa['nome']; ?> </th>
                         <th><?php echo $pessoa['telefone']; ?></th>

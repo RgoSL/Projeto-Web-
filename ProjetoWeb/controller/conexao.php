@@ -1,21 +1,21 @@
 <?php 
 
-class Conexao { //Clase de Conexão do arquivo, responsável por ligar a tabela do Banco de Dados ao arquivo PHP. // 
-    private $host = "localhost"; //Host do Banco.//
-    private $usuario = "root";  //Usuario identificado como "Root", por padrão.//
-    private $senha = ""; //Campo de senha do Host, não utilizada nesta tarefa em questão.//
-    private $banco = "exemplo_aula_pw"; // Nome do Banco de Dados criado no MySQL//
-    private $conexao;
+class Conexao { //Clase de Conexão do arquivo, responsável por ligar a tabela do Banco de Dados ao arquivo PHP. 
+    private $host = "localhost"; //Host do Banco.
+    private $usuario = "root";  //Usuario identificado como "Root", por padrão.
+    private $senha = ""; //Campo de senha do Host, não utilizada nesta tarefa em questão.
+    private $banco = "exemplo_aula_pw"; // Nome do Banco de Dados criado no MySQL.
+    private $conexao; //Objeto de Conexão.
 
-    public function __construct() {  //Método Construtor da ligação SQL.//
-        $this->conexao = new mysqli($this->host, $this->usuario, $this->senha, $this->banco); //Função externa chamada "msyqli", recebe os valores declarados acima.//
+    public function __construct() {  //Método Construtor da ligação SQL.
+        $this->conexao = new mysqli($this->host, $this->usuario, $this->senha, $this->banco); //Função externa chamada "msyqli", recebe os valores declarados acima.
 
-        if ($this->conexao->connect_error) { //Estrutura de Comparação do êxito da conexão do Banco.//
+        if ($this->conexao->connect_error) { //Estrutura de Comparação do êxito da conexão do Banco.
             die("Falha na conexão: " . $this->conexao->connect_error); //Encerramento da tentativa de conexão em caso de falha ao ligar.
         }
     }
 
-    public function getConexao() { //Método Get, retorna os valores passados no Método Construtor.//
+    public function getConexao() { //Método Get, retorna os valores passados no Método Construtor.
         return $this->conexao;
     }
 }

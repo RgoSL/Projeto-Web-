@@ -87,13 +87,14 @@ class Pessoa{ // Definindo a Classe Pessoa, responsável por definir os atributo
         $result = $stmt->get_result();
         $pessoas = [];
         while($pessoa = $result->fetch_assoc()){  //Função do sqli, fetch_assoc capta dados de um array list.
-            $pessoas[] = $pessoas;
+            $pessoas[] = $pessoa;
         }
-        return $pessoas;
+        return $pessoa;
        // print_r($pessoas);//
         //return $pessoas;
         
     }
+
     public function buscarPorId($id){
         $sql = "SELECT * FROM cliente WHERE id = ?";
         $stmt = $this->conexao->getConexao()->prepare($sql);
@@ -107,6 +108,13 @@ class Pessoa{ // Definindo a Classe Pessoa, responsável por definir os atributo
         $sql = "UPDATE pessoas SET nome = ?, endereco = ?, bairro = ?, cep = ?, cidade = ?, estado = ?, telefone = ?, celular = ? WHERE id = ?";
         $stmt = $this->conexao->getConexao()->prepare($sql);
         $stmt->bind_param('ssssssssi',$this->nome,$this->endereco, $this->bairro, $this->cep, $this->cidade, $this->estado, $this->telefone, $this->celular, $id);
+        return $stmt->execute();
+    }
+
+    public function excluir($id){
+        $sql = "DELETE FROM pessoas WHERE id = ?";
+        $stmt = $this->conexao->getConexao()->prepare($sql);
+        $stmt->bind_param('i', $id);
         return $stmt->execute();
     }
 }

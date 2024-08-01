@@ -4,7 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
   <div class="container-fluid">
     <a class="navbar-brand" href="#">Etec <strong>ZL</strong></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,8 +46,7 @@
                     $pessoas = $pessoaController->listar();
 
                    // print_r($pessoas);
-                    foreach ($pessoas as $pessoa) {
-                
+                    foreach($pessoas as $pessoa ) {
                          ?>
                     <tr>
                         <th><?php echo $pessoa['nome']; ?> </th>
